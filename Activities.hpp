@@ -5,7 +5,7 @@
 
 
 
-class Excursion : Offre{
+class Excursion : public Offre{
 private:
     int m_nvEtoiles;
     string m_ville;
@@ -13,10 +13,11 @@ private:
 
 public:
     Excursion(vector<string>& data);
+    ~Excursion() override = default;
     void displayDetails() override;
  };
 
-class Vols : Offre{
+class Vols : public Offre{
 private:
     string m_avion;
     string m_classe;
@@ -32,11 +33,13 @@ private:
 
 public:
     Vols(vector<string>& data);
+    ~Vols() override = default;
     void displayDetails() override;
+    string getTransporteur();
 };
 
 
-class Hebergement : Offre{
+class Hebergement : public Offre{
 private:
     double m_coteSure10;
     string m_secteur;
@@ -45,5 +48,6 @@ private:
 
 public:
     Hebergement(vector<string>& data);
+    ~Hebergement() override = default;
     void displayDetails() override;
 };

@@ -1,13 +1,17 @@
 #pragma once
 
-#include "Offres.hpp";
+#include "Offre.hpp";
+#include "CollectionAbs.hpp"
+
+
 
 class BDOR {
 private:
-	vector<Offre> data;
+	Collection<shared_ptr<Offre>> offres;
+	vector<string>parseLine(const string& line);
+
 
 public:
-	BDOR ();
-	~BDOR ();
-
+	BDOR();
+	~BDOR() = default;
 };

@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <fstream>
 #include <memory>
 #include <functional>
 #include <cassert>
@@ -24,10 +25,10 @@ protected:
 public:
 	Offre(vector<string>& data);
 	virtual void displayDetails() = 0;
-	/*virtual ~Offre();
+	virtual ~Offre() = default;
 	string getNom();
 	int getPrixUnitaire();
-	int getDevise();
-	void loadOffre();*/
+	string getDevise();
+	string getCategory();
 };
 

@@ -12,7 +12,7 @@ template <typename T>
 class CollectionAbs {
 public:
 	virtual ~CollectionAbs() = default;
-	virtual std::unique_ptr<IIterator<T>> creeIterateur() const = 0;
+	virtual std::unique_ptr<IIterator<T>> creerIterateur() const = 0;
 };
 
 template <typename T>
@@ -22,7 +22,7 @@ private:
 
 	class VectorIterator : public IIterator<T> {
 	private:
-		std::vector<T> collection;
+		const std::vector<T>& collection;
 		size_t index;
 	
 	public:
@@ -32,12 +32,12 @@ private:
 			index++;
 		}
 
-		bool hasNext() override {
+		bool hasNext() const override {
 			return index < collection.size();
 		}
 
 		T current() const override {
-			if (index < 0 || index >= collection.size()) {
+			if ( index >= collection.size()) {
 				throw std::out_of_range("Iterator hors portée");
 			}
 			return collection[index];
@@ -45,6 +45,26 @@ private:
 	};
 
 public:
+
+	Collection() = default;
+
+	Collection(const std::vector<T>& init_data) : data(init_data) {}
+
+
+	void ajouter(const T& element) {
+		data.push_back(element);
+	}
+
+	void retirer(const T& element) {
+		auto it = std::remove(data.begin(), data.end(), element);
+		if (it != data.end()) {
+			data.erase(it, data.end());
+		}
+	}
+
+	std::unique_ptr<IIterator<T>> creerIterateur() const override {
+		return std::make_unique<VectorIterator>(data);
+	}
 
 };
 
