@@ -1,7 +1,7 @@
 #pragma once
 // Structures mémoires pour une collection de films.
 
-#include "Offres.hpp";
+#include "Offre.hpp";
 
 
 
@@ -10,12 +10,11 @@ private:
     int m_nvEtoiles;
     string m_ville;
 
-public:
-    Excursion() {};
-    void loadData(string& fileName) override;
-    void displayDetails() const override;
 
-};
+public:
+    Excursion(vector<string>& data);
+    void displayDetails() override;
+ };
 
 class Vols : Offre{
 private:
@@ -29,12 +28,11 @@ private:
     string m_lieuDepart;
     string m_noVol;
     string m_transporteur;
-    bool m_wifi;
+    string m_wifi;
 
 public:
-    Vols();
-    void loadData(string& fileName) override;
-    void displayDetails() const override;
+    Vols(vector<string>& data);
+    void displayDetails() override;
 };
 
 
@@ -46,8 +44,6 @@ private:
 
 
 public:
-    Hebergement();
-    void loadData(string& fileName) override;
-    void displayDetails() const override;
-
+    Hebergement(vector<string>& data);
+    void displayDetails() override;
 };

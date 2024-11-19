@@ -1,10 +1,10 @@
 #pragma region "Includes"//{
-#define _CRT_SECURE_NO_WARNINGS // On permet d'utiliser les fonctions de copies de chaînes qui sont considérées non sécuritaires.
+#define _CRT_SECURE_NO_WARNINGS // On permet d'utiliser les fonctions de copies de chaÃ®nes qui sont considÃ©rÃ©es non sÃ©curitaires.
 
-#include "BDOR.hpp";      // Structures de données pour la collection de films en mémoire.
+#include "BDOR.hpp";      // Structures de donnÃ©es pour la collection de films en mÃ©moire.
 
 #include "bibliotheque_cours.hpp"
-#include "verification_allocation.hpp" // Nos fonctions pour le rapport de fuites de mémoire.
+#include "verification_allocation.hpp" // Nos fonctions pour le rapport de fuites de mÃ©moire.
 
 #include <iostream>
 #include <fstream>
@@ -14,26 +14,54 @@
 #include <sstream>
 #include "cppitertools/range.hpp"
 #include "gsl/span"
-#include "debogage_memoire.hpp"        // Ajout des numéros de ligne des "new" dans le rapport de fuites.  Doit être après les include du système, qui peuvent utiliser des "placement new" (non supporté par notre ajout de numéros de lignes).
+#include "debogage_memoire.hpp"        // Ajout des numÃ©ros de ligne des "new" dans le rapport de fuites.  Doit Ãªtre aprÃ¨s les include du systÃ¨me, qui peuvent utiliser des "placement new" (non supportÃ© par notre ajout de numÃ©ros de lignes).
 using namespace std;
 using namespace iter;
 using namespace gsl;
 
 #pragma endregion//}
 
-//void loadTransportOffers(BDOR &bdor, const std::string &fileName) {
-//    std::ifstream file(fileName);
-//    std::string line;
-//    while (std::getline(file, line)) {
-//        std::stringstream ss(line);
-//        std::string flightNumber, departure, destination, date, time;
-//
-//        std::getline(ss, flightNumber, ',');
-//        std::getline(ss, departure, ',');
-//        std::getline(ss, destination, ',');
-//        std::getline(ss, date, ',');
-//        std::getline(ss, time, ',');
-//
-//        bdor.addTransportOffer(flightNumber, departure, destination, date, time);
-//    }
-//}
+#include "Activities.hpp"
+
+string path = "MV_offres_de_reservation-Vol.csv";
+
+void outputCSV(string& filePath) {
+	ifstream inFile(filePath);
+    if (!inFile) {
+        cerr << "Error: Could not open file for reading!" << endl;
+    }
+    string line;
+    cout << "Reading from file:" << endl;
+    while (getline(inFile, line)) { // Read line by line
+        cout << line << endl;
+    }
+    inFile.close(); // Close the file
+}
+
+
+int main() {
+    // Example row of data from the Excel file
+    vector<string> row = {
+        "Air Canada AC 870 2024-10-26", 
+        "Air Canada",
+        "AC 870",
+        "YUL",
+        "CDG",
+        "2024-10-26",
+        "21:20",
+        "2024-10-27",
+        "9:30",
+        "Airbus A330-300",
+        "Economique",
+        "true",
+        "1127",
+        "CAD"
+        };
+
+
+
+    // Call function to generate output
+    Vols test = Vols(row);
+
+    return 0;
+}
