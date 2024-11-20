@@ -1,18 +1,15 @@
-#ifndef RESERVATIONS_HPP
-#define RESERVATIONS_HPP
+#pragma once
 
 #include "AbsPlanification.hpp"
 #include "Prix.hpp"
+#include "Offre.hpp"
 
-class Reservations : public AbsPlanification {
+class Reservation : public AbsPlanification {
 private:
-    std::string nom;
-    Prix prix;
+    std::shared_ptr<Offre> offre;
 
 public:
-    Reservations(const std::string& nom, const Prix& prix);
-    float calculerFraisTotaux() const override;
+    Reservation(const std::shared_ptr<Offre>& offre);
+    double calculerFraisTotaux() const override;
     void afficherDetails(const std::string& prefix = "") const override;
 };
-
-#endif // RESERVATIONS_HPP

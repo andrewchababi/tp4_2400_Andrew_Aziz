@@ -1,5 +1,4 @@
-#ifndef SEGMENTVOYAGE_HPP
-#define SEGMENTVOYAGE_HPP
+#pragma once
 
 #include "AbsPlanification.hpp"
 #include <vector>
@@ -8,13 +7,11 @@
 class SegmentVoyage : public AbsPlanification {
 private:
     std::string nom;
-    std::vector<std::shared_ptr<AbsPlanification>> enfants;
+    std::vector<std::shared_ptr<AbsPlanification>> composants;
 
 public:
     SegmentVoyage(const std::string& nom);
-    void ajouterEnfant(const std::shared_ptr<AbsPlanification>& enfant);
+    void ajouterComposant(const std::shared_ptr<AbsPlanification>& composant);
     float calculerFraisTotaux() const override;
     void afficherDetails(const std::string& prefix = "") const override;
 };
-
-#endif // SEGMENTVOYAGE_HPP

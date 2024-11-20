@@ -1,5 +1,4 @@
-#ifndef PRIX_HPP
-#define PRIX_HPP
+#pragma once
 
 #include <string>
 
@@ -15,5 +14,3 @@ public:
     std::string getDevise() const;
     float convertirEnCAD() const;
 };
-
-#endif // PRIX_HPP

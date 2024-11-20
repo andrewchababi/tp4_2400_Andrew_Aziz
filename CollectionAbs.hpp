@@ -38,18 +38,16 @@ private:
 
 		T current() const override {
 			if ( index >= collection.size()) {
-				throw std::out_of_range("Iterator hors portée");
+				throw std::out_of_range("Iterator hors portï¿½e");
 			}
 			return collection[index];
 		}
 	};
 
 public:
-
 	Collection() = default;
 
 	Collection(const std::vector<T>& init_data) : data(init_data) {}
-
 
 	void ajouter(const T& element) {
 		data.push_back(element);
@@ -65,6 +63,5 @@ public:
 	std::unique_ptr<IIterator<T>> creerIterateur() const override {
 		return std::make_unique<VectorIterator>(data);
 	}
-
 };
 

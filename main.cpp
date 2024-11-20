@@ -1,10 +1,10 @@
 #pragma region "Includes"//{
-#define _CRT_SECURE_NO_WARNINGS // On permet d'utiliser les fonctions de copies de chaînes qui sont considérées non sécuritaires.
+#define _CRT_SECURE_NO_WARNINGS // On permet d'utiliser les fonctions de copies de chaï¿½nes qui sont considï¿½rï¿½es non sï¿½curitaires.
 
-#include "BDOR.hpp";      // Structures de données pour la collection de films en mémoire.
+#include "BDOR.hpp";      // Structures de donnï¿½es pour la collection de films en mï¿½moire.
 
 #include "bibliotheque_cours.hpp"
-#include "verification_allocation.hpp" // Nos fonctions pour le rapport de fuites de mémoire.
+#include "verification_allocation.hpp" // Nos fonctions pour le rapport de fuites de mï¿½moire.
 
 #include <iostream>
 #include <fstream>
@@ -14,7 +14,7 @@
 #include <sstream>
 #include "cppitertools/range.hpp"
 #include "gsl/span"
-#include "debogage_memoire.hpp"        // Ajout des numéros de ligne des "new" dans le rapport de fuites.  Doit être après les include du système, qui peuvent utiliser des "placement new" (non supporté par notre ajout de numéros de lignes).
+#include "debogage_memoire.hpp"        // Ajout des numï¿½ros de ligne des "new" dans le rapport de fuites.  Doit ï¿½tre aprï¿½s les include du systï¿½me, qui peuvent utiliser des "placement new" (non supportï¿½ par notre ajout de numï¿½ros de lignes).
 using namespace std;
 using namespace iter;
 using namespace gsl;
@@ -41,28 +41,13 @@ void outputCSV(string& filePath) {
 
 int main() {
     // Example row of data from the Excel file
-    vector<string> row = {
-        "Air Canada AC 870 2024-10-26", 
-        "Air Canada",
-        "AC 870",
-        "YUL",
-        "CDG",
-        "2024-10-26",
-        "21:20",
-        "2024-10-27",
-        "9:30",
-        "Airbus A330-300",
-        "Economique",
-        "true",
-        "1127",
-        "CAD"
-        };
-
-
-
-    // Call function to generate output
-    //Vols test = Vols(row);
     BDOR test1 = BDOR();
+    // vector<string> row = {
+    //     "Air Canada AC 870 2024-10-26", "Air Canada", "AC 870", "YUL", "CDG", "2024-10-26", "21:20",
+    //     "2024-10-27", "9:30", "Airbus A330-300", "Economique", "true", "1127", "CAD"
+    //     };
+    // Call function to generate output
+    // Vols test = Vols(row);
 
     return 0;
 }

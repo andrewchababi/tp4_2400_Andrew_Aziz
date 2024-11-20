@@ -1,14 +1,12 @@
 #include "Reservation.hpp"
 #include <iostream>
 
-Reservations::Reservations(const std::string& nom, const Prix& prix) 
-    : nom(nom), prix(prix) {}
+Reservation::Reservation(const std::shared_ptr<Offre>& offre) : offre(offre) {}
 
-float Reservations::calculerFraisTotaux() const {
-    return prix.convertirEnCAD();
+double Reservation::calculerFraisTotaux() const {
+    return offre->getPrixEnCAD();
 }
 
-void Reservations::afficherDetails(const std::string& prefix) const {
-    std::cout << prefix << "Reservation: " << nom 
-              << " | Prix: " << prix.getMontant() << " " << prix.getDevise() << std::endl;
+void Reservation::afficherDetails(const std::string& prefix) const {
+    std::cout << prefix << "Reservation: " << offre->getNom() << "\n";
 }

@@ -21,18 +21,15 @@ Vols::Vols(vector<string>& data) : Offre(data) {
     displayDetails();
 }
 
-
 string Vols::getTransporteur() {
     return m_transporteur;
 }
-
 
 void Vols::displayDetails() {
     cout << "Entree " << getTransporteur() << " " << getNom() << " "
         << " rattachee a la categorie " << getCategory() << " creee!"
         << std::endl;
 }
-
 
 
 Hebergement::Hebergement(vector<string>& data) : Offre(data) {
@@ -43,11 +40,9 @@ Hebergement::Hebergement(vector<string>& data) : Offre(data) {
     displayDetails();
 }
 
-
 void Hebergement::displayDetails() {
     cout << "Entree " << getNom() << " rattache a la categorie " << getCategory() << " cree!" << endl;
 }
-
 
 
 Excursion::Excursion(vector<string>& data) : Offre(data) {
@@ -56,7 +51,6 @@ Excursion::Excursion(vector<string>& data) : Offre(data) {
     m_nvEtoiles = stoi(data[2]);
     displayDetails();
 }
-
 
 void Excursion::displayDetails() {
     cout << "Entree " << getNom() << " rattache a la categorie " << getCategory() << " cree!" << endl;

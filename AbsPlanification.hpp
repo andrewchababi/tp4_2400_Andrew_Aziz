@@ -1,5 +1,4 @@
-#ifndef ABSPLANIFICATION_HPP
-#define ABSPLANIFICATION_HPP
+#pragma once
 
 #include <string>
 #include <vector>
@@ -12,5 +11,3 @@ public:
     virtual void afficherDetails(const std::string& prefix = "") const = 0;
     virtual ~AbsPlanification() = default;
 };
-
-#endif // ABSPLANIFICATION_HPP

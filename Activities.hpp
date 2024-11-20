@@ -1,23 +1,21 @@
 #pragma once
-// Structures mémoires pour une collection de films.
 
 #include "Offre.hpp";
 
 
-
-class Excursion : public Offre{
+class Excursion : public Offre {
 private:
     int m_nvEtoiles;
     string m_ville;
-
 
 public:
     Excursion(vector<string>& data);
     ~Excursion() override = default;
     void displayDetails() override;
- };
+};
 
-class Vols : public Offre{
+
+class Vols : public Offre {
 private:
     string m_avion;
     string m_classe;
@@ -39,12 +37,11 @@ public:
 };
 
 
-class Hebergement : public Offre{
+class Hebergement : public Offre {
 private:
     double m_coteSure10;
     string m_secteur;
     string m_ville;
-
 
 public:
     Hebergement(vector<string>& data);

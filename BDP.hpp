@@ -1,5 +1,4 @@
-#ifndef BDP_HPP
-#define BDP_HPP
+#pragma once
 
 #include "AbsPlanification.hpp"
 #include <vector>
@@ -14,5 +13,3 @@ public:
     float calculerFraisTotaux() const;
     void afficherDetails() const;
 };
-
-#endif // BDP_HPP

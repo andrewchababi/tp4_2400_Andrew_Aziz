@@ -1,24 +1,23 @@
 #include "SegmentVoyage.hpp"
 #include <iostream>
 
-SegmentVoyage::SegmentVoyage(const std::string& nom) 
-    : nom(nom) {}
+SegmentVoyage::SegmentVoyage(const std::string& nom) : nom(nom) {}
 
-void SegmentVoyage::ajouterEnfant(const std::shared_ptr<AbsPlanification>& enfant) {
-    enfants.push_back(enfant);
+void SegmentVoyage::ajouterComposant(const std::shared_ptr<AbsPlanification>& composant) {
+    composants.push_back(composant);
 }
 
 float SegmentVoyage::calculerFraisTotaux() const {
     float total = 0.0f;
-    for (const auto& enfant : enfants) {
-        total += enfant->calculerFraisTotaux();
+    for (const auto& composant : composants) {
+        total += composant->calculerFraisTotaux();
     }
     return total;
 }
 
 void SegmentVoyage::afficherDetails(const std::string& prefix) const {
-    std::cout << prefix << "Segment: " << nom << std::endl;
-    for (const auto& enfant : enfants) {
-        enfant->afficherDetails(prefix + "  ");
+    std::cout << prefix << nom << std::endl;
+    for (const auto& composant : composants) {
+        composant->afficherDetails(prefix + "  ");
     }
 }
