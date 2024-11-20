@@ -10,6 +10,6 @@ private:
 
 public:
     Reservation(const std::shared_ptr<Offre>& offre);
-    double calculerFraisTotaux() const override;
+    float calculerFraisTotaux() const override;
     void afficherDetails(const std::string& prefix = "") const override;
 };

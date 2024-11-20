@@ -3,7 +3,7 @@
 
 Reservation::Reservation(const std::shared_ptr<Offre>& offre) : offre(offre) {}
 
-double Reservation::calculerFraisTotaux() const {
+float Reservation::calculerFraisTotaux() const {
     return offre->getPrixEnCAD();
 }
 
