@@ -1,5 +1,9 @@
 #include "BDOR.hpp"
 #include "Activities.hpp"
+#include <iostream>
+#include <fstream>
+#include <sstream>
+
 
 constexpr auto filepathVol = "MV_offres_de_reservation-Vol.csv";
 constexpr auto filepathHebergement = "MV_offres_de_reservation-Hebergement.csv";

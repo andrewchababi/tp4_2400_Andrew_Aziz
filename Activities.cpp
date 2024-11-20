@@ -1,5 +1,6 @@
 #include "filesystem"
-#include "Activities.hpp";
+#include "Activities.hpp"
+#include <iostream>
 
 
 const string FILEPATH = "MV_offres_de_reservation.xlsx";
